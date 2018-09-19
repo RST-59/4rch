@@ -45,6 +45,7 @@ height = 17
 offset-x = 0
 offset-y = 0
 fixed-center = true
+locale=fr_FR.UTF-8
 
 background = ${colors.color0}
 foreground = ${colors.color7}
@@ -70,18 +71,19 @@ font-3 = "Font Awesome 5 Brands:pixelsize=10;2"
 
 modules-left = i3
 modules-center = date
-modules-right = weather cpu memory temperature volume openvpn wlan wlan2 eth eth2 battery powermenu
+modules-right = wlan wlan2 eth eth2 openvpn cpu memory temperature volume battery powermenu
 
 tray-position = right
 tray-padding = 2
 
 
 [module/i3]
+
 type = internal/i3
 
 ; ws-icon-[0-9]+ = label;icon
 ws-icon-0 = 1;
-ws-icon-1 = 2;
+ws-icon-1 = 2;
 ws-icon-2 = 3;3
 ws-icon-3 = 4;4
 ws-icon-4 = 5;5
@@ -113,19 +115,19 @@ label-visible-padding = 1
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = %{A:urxvt -T "__monitor__" -e htop:} %{A}
+format-prefix = %{A:exec urxvt -T "__monitor__" -e htop:} %{A}
 format-prefix-foreground = ${colors.color4}
 ;format-underline = #f90000
-label =  %{A:urxvt -T "__monitor__" -e htop:}%percentage%%%{A}
+label =  %{A:exec urxvt -T "__monitor__" -e htop:}%percentage%%%{A}
 label-foreground = ${colors.color4}
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = %{A:urxvt -T "__monitor__" -e htop:} %{A}
+format-prefix = %{A:exec urxvt -T "__monitor__" -e htop:} %{A}
 format-prefix-foreground = ${colors.color5}
 ;format-underline = #4bffdc
-label = %{A:urxvt -T "__monitor__" -e htop:}%percentage_used%%%{A}
+label = %{A:exec urxvt -T "__monitor__" -e htop:}%percentage_used%%%{A}
 label-foreground = ${colors.color5}
 
 [module/wlan]
@@ -137,9 +139,9 @@ format-connected = <ramp-signal><label-connected>
 ;format-connected-underline = #5e468c
 ;format-disconnected-underline = ${self.format-connected-underline}
 
-label-connected = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:} %{F#02c9ff}%downspeed%%{F-} %{F#9285FF}%upspeed%%{F-}%{A}
+label-connected = %{A:exec urxvt -T "__wifi_menu__" -e sudo wifi-menu:} %{F#02c9ff}%downspeed%%{F-} %{F#9285FF}%upspeed%%{F-}%{A}
 label-connected-foreground = ${colors.color7}
-label-disconnected = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:}%{A}
+label-disconnected = %{A:exec urxvt -T "__wifi_menu__" -e sudo wifi-menu:}%{A}
 label-disconnected-foreground = ${colors.color1}
 format-connected-alt = 12
 
@@ -159,9 +161,9 @@ format-connected = <ramp-signal><label-connected>
 ;format-connected-underline = #5e468c
 ;format-disconnected-underline = ${self.format-connected-underline}
 
-label-connected = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:} %{F#02c9ff}%downspeed%%{F-} %{F#9285FF}%upspeed%%{F-}%{A}
+label-connected = %{A:exec urxvt -T "__wifi_menu__" -e sudo wifi-menu:} %{F#02c9ff}%downspeed%%{F-} %{F#9285FF}%upspeed%%{F-}%{A}
 label-connected-foreground = ${colors.color7}
-label-disconnected = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:}%{A}
+label-disconnected = %{A:exec urxvt -T "__wifi_menu__" -e sudo wifi-menu:}%{A}
 label-disconnected-foreground = ${colors.color1}
 format-connected-alt = 12
 
@@ -210,7 +212,7 @@ time-alt = %H:%M
 ; format-prefix = 
 format-prefix-foreground = ${colors.color7}
 ;format-underline = #0a6cf5
-label = %{A:urxvt -T "__calendar__" -e zsh -c "task calendar && task list || read":}%{F#D8DEE9}────[%{F-} %{F#02c9ff}%date%%{F-}%{F#bf616a} %time%%{F-} %{F#D8DEE9}]────%{F-}%{A}
+label = %{A:exec urxvt -T "__calendar__" -e bash -c "task calendar && task list || read":}%{F#D8DEE9}────[%{F-} %{F#02c9ff}%date%%{F-}%{F#bf616a} %time%%{F-} %{F#D8DEE9}]────%{F-}%{A}
 
 [module/battery]
 type = internal/battery

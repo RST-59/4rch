@@ -2,7 +2,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -23,10 +23,12 @@ font pango:hack 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Control+T exec i3-sensible-terminal
+bindsym 10 exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+A kill
+#bindsym $mod+Shift+A kill
+bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -x 700 -y 350 -i -l 20 -w 400'
@@ -56,10 +58,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+Shift+h split v
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Shift+v split h
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -109,7 +111,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # lock
-bindsym $mod+l exec i3lock -t -i .i3/lock.jpg --timepos="150:h-190" --datepos="150:h-150" --clock --datestr "$(date "+%A %d %b %Y")" --insidecolor=00000000 --ringcolor=00000000 --line-uses-inside --keyhlcolor=00000000 --bshlcolor=00000000 --separatorcolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=00000000 --ringwrongcolor=00000000 --indpos="x+280:h-70" --radius=20 --ring-width=4 --veriftext="" --wrongtext="" --verifcolor="00000000" --timecolor="ffffffff" --datecolor="ffffffff" --date-font=Hack --time-font=Hack --timesize=40 --datesize=30 --date-align 1 --time-align 1
+bindsym $mod+Control+l exec i3lock -t -i .i3/lock.png --timepos="150:h-190" --datepos="150:h-150" --clock --datestr "$(date "+%A %d %b %Y")" --insidecolor=00000000 --ringcolor=00000000 --line-uses-inside --keyhlcolor=00000000 --bshlcolor=00000000 --separatorcolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=00000000 --ringwrongcolor=00000000 --indpos="x+280:h-70" --radius=20 --ring-width=4 --veriftext="" --wrongtext="" --verifcolor="00000000" --timecolor="ffffffff" --datecolor="ffffffff" --date-font=Hack --time-font=Hack --timesize=40 --datesize=30 --date-align 1 --time-align 1
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -147,37 +149,31 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 
 # Media player controls
 bindsym XF86AudioPlay exec playerct play
-bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPause exec player pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 
 
 # General
-exec_always --no-startup-id feh --bg-fill ~/.i3/back.jpg
+exec_always --no-startup-id feh --bg-fill ~/.i3/back.png
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id killall redshift
 exec_always --no-startup-id redshift -l 50.6333:3.0667
 smart_borders no_gaps
-gaps outer 2
-gaps inner 5
 for_window [class="^.*"] border pixel 0
-for_window [title="^__calendar__"] floating enable move absolute position center move up 300 px
-for_window [title="^__monitor__"] floating enable move absolute position center move up 300 px move right 500 px
-for_window [title="^__wifi_menu__"] floating enable move absolute position center move up 300 px move right 600 px
+for_window [title="^calendar"] floating enable move absolute position center move up 300 px
+for_window [title="^monitor"] floating enable move absolute position center move up 300 px move right 500 px
+for_window [title="^wifi_menu"] floating enable move absolute position center move up 300 px move right 600 px
 for_window [title="^sxiv .*gif"] floating enable move absolute position center move up 200 px move right 400 px focus_on_window_activation none
 # End General
 
-# Firefox
-workspace 2 gaps inner 0
-workspace 2 gaps outer 0
-assign [class=".*(F|f)irefox.*"] workspace2
-for_window [class=".*(F|f)irefox.*"] focus
-# End Firefox
+# navigateur
+assign [class=".*(C|c)hrom.*"] workspace2
+for_window [class=".*(C|c)hrom.*"] focus
+# End navigateur
 
 # Vlc
-workspace 3 gaps inner 0
-workspace 3 gaps outer 0
 assign [class=".*(V|v)lc.*"] workspace3
 # End Vlc
 

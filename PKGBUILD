@@ -8,7 +8,7 @@ depends=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 
 # Network
 depends+=('gnu-netcat' 'openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'openssl')
 # CLI
-depends+=('zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'ldm' 'micro'  'ranger' 'rsync' 'screen')
+depends+=('tree' 'task' 'git' 'htop' 'ldm' 'micro'  'ranger' 'rsync' 'screen')
 # UI
 depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'xorg-xbacklight' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks')
 # Fonts
@@ -43,7 +43,6 @@ package() {
   rsync -av $srcdir/4rch-master/.ncmpcpp $pkgdir$HOME/
   ## Daily script
   cp $srcdir/4rch-master/Xdefaults $pkgdir$HOME/.Xdefaults
-  cp $srcdir/4rch-master/.zshrc $pkgdir$HOME/.zshrc
   echo "exec i3" > $pkgdir$HOME/.xinitrc
   echo "#!/bin/bash" > $pkgdir$HOME/.xsession
   echo 'exec sudo ip link set down $WIRELESS' >> $pkgdir$HOME/.xsession
