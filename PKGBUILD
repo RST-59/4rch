@@ -8,7 +8,7 @@ depends=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 
 # Network
 depends+=('gnu-netcat' 'openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'openssl')
 # CLI
-depends+=('tree' 'task' 'git' 'htop' 'ldm' 'micro'  'ranger' 'rsync' 'screen')
+depends+=('perl-file-mimeinfo' 'tree' 'task' 'git' 'htop' 'ldm' 'micro'  'ranger' 'rsync' 'screen')
 # UI
 depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'xorg-xbacklight' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks')
 # Fonts
