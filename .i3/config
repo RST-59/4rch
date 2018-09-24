@@ -164,9 +164,9 @@ exec_always --no-startup-id killall redshift
 exec_always --no-startup-id redshift -l 50.6333:3.0667
 smart_borders no_gaps
 for_window [class="^.*"] border pixel 0
-for_window [title="^calendar"] floating enable move absolute position center move up 300 px
-for_window [title="^monitor"] floating enable move absolute position center move up 300 px move right 500 px
-for_window [title="^wifi_menu"] floating enable move absolute position center move up 300 px move right 600 px
+for_window [title="^__calendar__"] floating enable move absolute position center move up 300 px
+for_window [title="^__monitor__"] floating enable move absolute position center move up 300 px move right 500 px
+for_window [title="^__wifi_menu__"] floating enable move absolute position center move up 300 px move right 600 px
 for_window [title="^sxiv .*gif"] floating enable move absolute position center move up 200 px move right 400 px focus_on_window_activation none
 # End General
 
