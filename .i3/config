@@ -2,7 +2,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -23,14 +23,14 @@ font pango:hack 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Control+T exec i3-sensible-terminal
+bindsym Mod1+Ctrl+t exec i3-sensible-terminal
 
 # start navigateur
 bindsym $mod+Control+Y exec chromium
 
 # kill focused window
 #bindsym $mod+Shift+A kill
-bindsym $mod+Shift+Q kill
+bindsym Mod1+Shift+Q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -x 700 -y 350 -i -l 20 -w 400'
@@ -83,28 +83,28 @@ bindsym $mod+space focus mode_toggle
 # bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+ampersand workspace 1
-bindsym $mod+eacute workspace 2
-bindsym $mod+quotedbl workspace 3
-bindsym $mod+apostrophe workspace 4
-bindsym $mod+parenleft workspace 5
-bindsym $mod+minus workspace 6
-bindsym $mod+egrave workspace 7
-bindsym $mod+underscore workspace 8
-bindsym $mod+ccedilla workspace 9
-bindsym $mod+agrave workspace 10
+bindsym Mod1+ampersand workspace 1
+bindsym Mod1+eacute workspace 2
+bindsym Mod1+quotedbl workspace 3
+bindsym Mod1+apostrophe workspace 4
+bindsym Mod1+parenleft workspace 5
+bindsym Mod1+minus workspace 6
+bindsym Mod1+egrave workspace 7
+bindsym Mod1+underscore workspace 8
+bindsym Mod1+ccedilla workspace 9
+bindsym Mod1+agrave workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+eacute move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+egrave move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+ccedilla move container to workspace 9
-bindsym $mod+Shift+agrave move container to workspace 10
+bindsym Mod1+Shift+1 move container to workspace 1
+bindsym Mod1+Shift+eacute move container to workspace 2
+bindsym Mod1+Shift+3 move container to workspace 3
+bindsym Mod1+Shift+4 move container to workspace 4
+bindsym Mod1+Shift+5 move container to workspace 5
+bindsym Mod1+Shift+6 move container to workspace 6
+bindsym Mod1+Shift+egrave move container to workspace 7
+bindsym Mod1+Shift+8 move container to workspace 8
+bindsym Mod1+Shift+ccedilla move container to workspace 9
+bindsym Mod1+Shift+agrave move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -113,7 +113,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # lock
-bindsym $mod+Control+l exec i3lock -t -i .i3/lock.png --timepos="150:h-190" --datepos="150:h-150" --clock --datestr "$(date "+%A %d %b %Y")" --insidecolor=00000000 --ringcolor=00000000 --line-uses-inside --keyhlcolor=00000000 --bshlcolor=00000000 --separatorcolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=00000000 --ringwrongcolor=00000000 --indpos="x+280:h-70" --radius=20 --ring-width=4 --veriftext="" --wrongtext="" --verifcolor="00000000" --timecolor="ffffffff" --datecolor="ffffffff" --date-font=Hack --time-font=Hack --timesize=40 --datesize=30 --date-align 1 --time-align 1
+bindsym Mod1+Ctrl+l exec i3lock -t -i .i3/lock.png --timepos="150:h-190" --datepos="150:h-150" --clock --datestr "$(date "+%A %d %b %Y")" --insidecolor=00000000 --ringcolor=00000000 --line-uses-inside --keyhlcolor=00000000 --bshlcolor=00000000 --separatorcolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=00000000 --ringwrongcolor=00000000 --indpos="x+280:h-70" --radius=20 --ring-width=4 --veriftext="" --wrongtext="" --verifcolor="00000000" --timecolor="ffffffff" --datecolor="ffffffff" --date-font=Hack --time-font=Hack --timesize=40 --datesize=30 --date-align 1 --time-align 1
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -176,7 +176,7 @@ for_window [class=".*(C|c)hrom.*"] focus
 # End navigateur
 
 # Vlc
-assign [class=".*(V|v)lc.*"] workspace3
+assign [class=".*(V|v)lc.*"] workspace3 focus
 # End Vlc
 
 exec_always --no-startup-id ~/.xsession
