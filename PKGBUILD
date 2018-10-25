@@ -54,6 +54,7 @@ package() {
   cat $srcdir/4rch-master/taskrc >> $HOME/.taskrc
   mkdir -p $pkgdir/etc/X11/xorg.conf.d/
   cp $srcdir/4rch-master/00-keyboard.conf $pkgdir/etc/X11/xorg.conf.d/00-keyboard.conf
+  cp $srcdir/4rch-master/bashrc $pkgdir$HOME/.bashrc.pknew
   }
 
 post_install() {
