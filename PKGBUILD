@@ -21,7 +21,7 @@ depends+=('android-file-transfer' 'filezilla' 'vlc' 'p7zip' 'ranger' 'rxvt-unico
 depends+=('w3m' 'mpd' 'ffmpeg' 'ncmpcpp')
 
 optdepends=('gtop' 'krita' 'megacmd' 'namebench' 'wps-office' 'wps-office-extension-french-dictionary')
-source=(https://github.com/lievin-christopher/4rch/archive/master.zip)
+source=(https://github.com/rst-59/4rch/archive/master.zip)
 sha512sums=('SKIP')
 
 package() {
