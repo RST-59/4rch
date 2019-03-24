@@ -26,14 +26,14 @@ floating_modifier $mod
 bindsym Mod1+Ctrl+t exec i3-sensible-terminal
 
 # start navigateur
-bindsym $mod+Control+Y exec chromium
+#bindsym $mod+Control+Y exec chromium
 
 # kill focused window
 #bindsym $mod+Shift+A kill
 bindsym Mod1+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -x 700 -y 350 -i -l 20 -w 400'
+bindsym Mod1+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -x 700 -y 350 -i -l 20 -w 400'
 
 # change focus
 bindsym $mod+j focus left
@@ -141,9 +141,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+ #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master unmute 5%+ #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master unmute 5%- #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -160,8 +160,13 @@ bindsym XF86AudioPrev exec playerctl previous
 # General
 exec_always --no-startup-id feh --bg-fill ~/.i3/back.png
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch2.sh
 exec_always --no-startup-id killall redshift
 exec_always --no-startup-id redshift -l 50.6333:3.0667
+#les notif
+exec_always --no-startup-id killall dunst
+exec_always --no-startup-id dunst
+
 smart_borders no_gaps
 for_window [class="^.*"] border pixel 0
 for_window [title="^__calendar__"] floating enable move absolute position center move up 300 px
